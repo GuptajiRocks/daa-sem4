@@ -6,12 +6,14 @@ pair<int, int> jesus(int blocksize[], int p, int n) {
     int bs = 0;
     int idx = 0;
     for (int i = 0; i < n; i++) {
-        if (blocksize[i] >= n || blocksize[i] < bs) {
+        if (blocksize[i] >= p || blocksize[i] < bs) {
             bs = blocksize[i];
             idx = i;
             break;
         }
     }
+
+    blocksize[idx] = blocksize[idx] - p;
 
     res.first = bs;
     res.second = idx;
